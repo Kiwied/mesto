@@ -1,0 +1,9 @@
+.element__сaption {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: baseline;
+          align-items: baseline;
+  width: 87.234%;
+}

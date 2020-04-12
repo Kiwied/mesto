@@ -1,0 +1,16 @@
+@import url(image/element__image.css);
+@import url(caption/element__caption.css);
+@import url(title/element__title.css);
+@import url(like/element__like.css);
+
+.element {
+  background-color: white;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+          align-items: center;
+}

@@ -9,6 +9,7 @@
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
+  -webkit-transition: opacity .15s linear;
   transition: opacity .15s linear;
 }
 
