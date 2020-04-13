@@ -16,6 +16,15 @@
   opacity: .6;
 }
 
+.buttons__edit:focus {
+  outline: none;
+}
+
+.buttons__edit:active {
+  opacity: 1;
+  transition: 0s;
+}
+
 @media screen and (max-width: 657px) {
   .buttons__edit {
     width: 18px;

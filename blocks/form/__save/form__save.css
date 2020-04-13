@@ -15,3 +15,12 @@
 .form__save:hover {
   opacity: .8;
 }
+
+.form__save:focus {
+  outline: none;
+}
+
+.form__save:active {
+  opacity: 1;
+  transition: 0s;
+}

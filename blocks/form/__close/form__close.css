@@ -21,3 +21,12 @@
 .form__close:hover {
   opacity: .6;
 }
+
+.form__close:focus {
+  outline: none;
+}
+
+.form__close:active {
+  opacity: 1;
+  transition: 0s;
+}

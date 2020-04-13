@@ -17,6 +17,15 @@
   opacity: .6;
 }
 
+.buttons__add:focus {
+  outline: none;
+}
+
+.buttons__add:active {
+  opacity: 1;
+  transition: 0s;
+}
+
 @media screen and (max-width: 657px) {
   .buttons__add {
     width: 282px;
