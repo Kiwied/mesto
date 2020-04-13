@@ -1,2 +1,2 @@
-@import url(edit/buttons__edit.css);
-@import url(add/buttons__add.css);
+@import url(__edit/buttons__edit.css);
+@import url(__add/buttons__add.css);

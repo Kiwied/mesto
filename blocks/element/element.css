@@ -1,7 +1,7 @@
-@import url(image/element__image.css);
-@import url(caption/element__caption.css);
-@import url(title/element__title.css);
-@import url(like/element__like.css);
+@import url(__image/element__image.css);
+@import url(__caption/element__caption.css);
+@import url(__title/element__title.css);
+@import url(__like/element__like.css);
 
 .element {
   background-color: white;

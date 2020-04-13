@@ -1,0 +1,24 @@
+@import url(__title/form__title.css);
+@import url(__name/form__name.css);
+@import url(__description/form__description.css);
+@import url(__save/form__save.css);
+@import url(__close/form__close.css);
+
+.form {
+  width: 430px;
+  height: 330px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  background-color: white;
+  position: fixed;
+  left: 38%;
+  top: 35%;;
+  border-radius: 10px;
+}
