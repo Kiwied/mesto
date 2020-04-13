@@ -3,7 +3,13 @@
   padding-top: 51px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
-  grid-gap: 1.35rem 1.125rem;
+  grid-gap: 20px 18px;
   -webkit-box-pack: justify;
           justify-content: space-between;
+}
+
+@media screen and (max-width: 425px) {
+  .elements {
+    padding-top: 36px;
+  }
 }
