@@ -5,7 +5,7 @@
 * Описание
 * Figma
 * Используемые технологии
-* Gitpages
+* GitHub Pages
 
 **Описание**
 
@@ -16,7 +16,7 @@
 
 [Ссылка на макет в Figma](https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4 "Figma/mesto")
 
-**Используемые технологии**
+#### Используемые технологии
 
 * HTML, CSS
 * flexbox, grid layout
@@ -24,6 +24,8 @@
 * Nested БЭМ
 * Система контроля версий Git
 
-Принципиально новые технологии в сравнении с прошлыми работами:
+**Принципиально новые технологии в сравнении с прошлыми работами:**
 
 * интерактивность при помощи JavaScript
+
+**[Ссылка на GitHub Pages](https://kiwied.github.io/mesto/ "Mesto")**
