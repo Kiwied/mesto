@@ -18,7 +18,16 @@
           justify-content: space-between;
   background-color: white;
   position: fixed;
-  left: 38%;
-  top: 35%;;
+  left: 50%;
+  top: 50%;
+  margin: -165px 0 0 -215px;
   border-radius: 10px;
 }
+
+@media screen and (max-width: 537px) {
+  .form {
+    width: 80%;
+    margin: -165px 0 0 -40%;
+  }
+}
+
