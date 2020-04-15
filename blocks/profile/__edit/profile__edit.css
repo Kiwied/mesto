@@ -1,4 +1,4 @@
-.buttons__edit {
+.profile__edit {
   width: 24px;
   height: 24px;
   border: 1px solid white;
@@ -12,21 +12,21 @@
   transition: opacity .15s linear;
 }
 
-.buttons__edit:hover {
+.profile__edit:hover {
   opacity: .6;
 }
 
-.buttons__edit:focus {
+.profile__edit:focus {
   outline: none;
 }
 
-.buttons__edit:active {
+.profile__edit:active {
   opacity: 1;
   transition: 0s;
 }
 
 @media screen and (max-width: 657px) {
-  .buttons__edit {
+  .profile__edit {
     width: 18px;
     height: 18px;
   }

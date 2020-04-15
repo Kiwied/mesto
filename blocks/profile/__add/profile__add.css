@@ -1,4 +1,4 @@
-.buttons__add {
+.profile__add {
   width: 150px;
   height: 50px;
   border: 2px solid white;
@@ -13,21 +13,21 @@
   transition: opacity .15s linear;
 }
 
-.buttons__add:hover {
+.profile__add:hover {
   opacity: .6;
 }
 
-.buttons__add:focus {
+.profile__add:focus {
   outline: none;
 }
 
-.buttons__add:active {
+.profile__add:active {
   opacity: 1;
   transition: 0s;
 }
 
 @media screen and (max-width: 657px) {
-  .buttons__add {
+  .profile__add {
     width: 282px;
     height: 50px;
     margin-top: 36px;
