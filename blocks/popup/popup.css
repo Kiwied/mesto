@@ -1,3 +1,7 @@
+@import url(__close/popup__close.css);
+@import url(__image/popup__image.css);
+@import url(__place/popup__place.css);
+
 .popup {
   display: none;
   position: fixed;
