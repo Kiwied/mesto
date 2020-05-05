@@ -49,6 +49,10 @@ function addCard(nameValue, linkValue) {
   cardElement.querySelector('.element__title').textContent = nameValue;
   cardElement.querySelector('.element__image').alt = nameValue;
 
+  cardElement.querySelector('.element__like').addEventListener('click', function(evt) {
+    evt.target.classList.toggle('element__like_active');
+  });
+
   cardsContainer.prepend(cardElement);
 };
 
