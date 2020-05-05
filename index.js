@@ -1,6 +1,9 @@
 const editButton = document.querySelector('.profile__edit');
-const popup = document.querySelector('.popup');
-const closeButton = document.querySelector('.form__close');
+const addButton = document.querySelector('.profile__add');
+const profile = document.querySelector('#popup_profile');
+const newCard = document.querySelector('#popup_new-card');
+const closeButtonProfile = profile.querySelector('.form__close');
+const closeButtonNewCard = newCard.querySelector('.form__close');
 let profileName = document.querySelector('.profile__name');
 let formName = document.querySelector('.form__input_name');
 let profileDescription = document.querySelector('.profile__description');
@@ -35,7 +38,7 @@ const initialCards = [
   }
 ];
 
-
+initialCards.forEach((element) => {addCard(element.name, element.link)});
 
 function addCard(nameValue, linkValue) {
   const cardTemplate = document.querySelector('#card').content;
@@ -51,14 +54,21 @@ function addCard(nameValue, linkValue) {
 
 
 
-function open() {
+function openProfile() {
   formName.value = profileName.textContent;
   formDescription.value = profileDescription.textContent;
-  popup.classList.add('popup_opened');
+  profile.classList.add('popup_opened');
+}
+
+function openNewCard() {
+  formName.value = profileName.textContent;
+  formDescription.value = profileDescription.textContent;
+  newCard.classList.add('popup_opened');
 }
 
 function close() {
-  popup.classList.remove('popup_opened');
+  profile.classList.remove('popup_opened');
+  newCard.classList.remove('popup_opened');
 }
 
 function save(e) {
@@ -68,8 +78,12 @@ function save(e) {
   close();
 }
 
-editButton.addEventListener('click', open);
-closeButton.addEventListener('click', close);
+editButton.addEventListener('click', openProfile);
+addButton.addEventListener('click', openNewCard);
+closeButtonProfile.addEventListener('click', close);
+closeButtonNewCard.addEventListener('click', close);
 saveButton.addEventListener('click', save);
 
-initialCards.forEach((element) => {addCard(element.name, element.link)});
+
+
+

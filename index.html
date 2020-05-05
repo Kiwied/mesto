@@ -34,53 +34,6 @@
 
       <section>
         <ul class="elements">
-          <!--<li class="element">
-            <img src="images/karachaevsk.jpg" alt="город Карачаевск" class="element__image">
-            <div class="element__сaption">
-              <h3 class="element__title">Карачаевск</h3>
-              <button type="button" class="element__like"></button>
-            </div>
-          </li>
-
-          <li class="element">
-            <img src="images/elbrus.jpg" alt="гора Эльбрус, Кавказ" class="element__image">
-            <div class="element__сaption">
-              <h3 class="element__title">Гора Эльбрус</h3>
-              <button type="button" class="element__like"></button>
-            </div>
-          </li>
-
-          <li class="element">
-            <img src="images/dombai.jpg" alt="горный хребет Домбай, Северный Кавказ" class="element__image">
-            <div class="element__сaption">
-              <h3 class="element__title">Домбай</h3>
-              <button type="button" class="element__like"></button>
-            </div>
-          </li>
-
-          <li class="element">
-            <img src="images/sumba.jpg" alt="остров Сумба, Индонезия" class="element__image">
-            <div class="element__сaption">
-              <h3 class="element__title">Сумба</h3>
-              <button type="button" class="element__like"></button>
-            </div>
-          </li>
-
-          <li class="element">
-            <img src="images/tirol.jpg" alt="Тироль, Австрия" class="element__image">
-            <div class="element__сaption">
-              <h3 class="element__title">Тироль</h3>
-              <button type="button" class="element__like"></button>
-            </div>
-          </li>
-
-          <li class="element">
-            <img src="images/supai.jpg" alt="Сапай, Аризона" class="element__image">
-            <div class="element__сaption">
-              <h3 class="element__title">Сапай</h3>
-              <button type="button" class="element__like"></button>
-            </div>
-          </li>-->
         </ul>
       </section>
     </main>
@@ -89,12 +42,22 @@
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
 
-    <section class="popup">
+    <section class="popup" id="popup_profile">
       <form class="form">
         <h3 class="form__title">Редактировать профиль</h3>
         <input type="text" placeholder="Имя" class="form__input form__input_name">
         <input type="text" placeholder="Описание" class="form__input form__input_description">
         <button type="submit" class="form__save">Сохранить</button>
+        <button type="button" class="form__close"></button>
+      </form>
+    </section>
+
+    <section class="popup" id="popup_new-card">
+      <form class="form">
+        <h3 class="form__title">Новое место</h3>
+        <input type="text" placeholder="Название" class="form__input form__input_name">
+        <input type="text" placeholder="Ссылка на картинку" class="form__input form__input_description">
+        <button type="submit" class="form__save">Создать</button>
         <button type="button" class="form__close"></button>
       </form>
     </section>
