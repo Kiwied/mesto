@@ -8,8 +8,11 @@ let profileName = document.querySelector('.profile__name');
 let formName = document.querySelector('.form__input_name');
 let profileDescription = document.querySelector('.profile__description');
 let formDescription = document.querySelector('.form__input_description');
-const saveButton = document.querySelector('.form__save');
+const saveButton = profile.querySelector('.form__save');
+const createButton = newCard.querySelector('.form__save');
 const cardsContainer = document.querySelector('.elements');
+let newCardName = newCard.querySelector('.form__input_name');
+let newCardLink = newCard.querySelector('.form__input_link');
 
 const initialCards = [
   {
@@ -61,8 +64,8 @@ function openProfile() {
 }
 
 function openNewCard() {
-  formName.value = profileName.textContent;
-  formDescription.value = profileDescription.textContent;
+  newCardName.value = '';
+  newCardLink.value = '';
   newCard.classList.add('popup_opened');
 }
 
@@ -83,6 +86,14 @@ addButton.addEventListener('click', openNewCard);
 closeButtonProfile.addEventListener('click', close);
 closeButtonNewCard.addEventListener('click', close);
 saveButton.addEventListener('click', save);
+
+createButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  let name = newCardName.value;
+  let link = newCardLink.value;
+  addCard(name, link);
+  close();
+});
 
 
 
