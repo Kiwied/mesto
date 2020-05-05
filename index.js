@@ -53,6 +53,10 @@ function addCard(nameValue, linkValue) {
     evt.target.classList.toggle('element__like_active');
   });
 
+  cardElement.querySelector('.element__delete').addEventListener('click', function(evt) {
+    evt.target.closest('.element').remove();
+  });
+
   cardsContainer.prepend(cardElement);
 };
 
@@ -95,6 +99,7 @@ newCard.addEventListener('submit', (e) => {
   addCard(name, link);
   close();
 });
+
 
 
 
