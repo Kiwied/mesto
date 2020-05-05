@@ -8,36 +8,34 @@ let profileName = document.querySelector('.profile__name');
 let formName = document.querySelector('.form__input_name');
 let profileDescription = document.querySelector('.profile__description');
 let formDescription = document.querySelector('.form__input_description');
-const saveButton = profile.querySelector('.form__save');
-const createButton = newCard.querySelector('.form__save');
 const cardsContainer = document.querySelector('.elements');
 let newCardName = newCard.querySelector('.form__input_name');
 let newCardLink = newCard.querySelector('.form__input_link');
 
 const initialCards = [
   {
-      name: 'Карачаевск',
-      link: 'images/karachaevsk.jpg'
+    name: 'Сапай',
+    link: 'images/supai.jpg'
   },
   {
-      name: 'Гора Эльбрус',
-      link: 'images/elbrus.jpg'
+    name: 'Тироль',
+    link: 'images/tirol.jpg'
   },
   {
-      name: 'Домбай',
-      link: 'images/dombai.jpg'
+    name: 'Сумба',
+    link: 'images/sumba.jpg'
   },
   {
-      name: 'Сумба',
-      link: 'images/sumba.jpg'
+    name: 'Домбай',
+    link: 'images/dombai.jpg'
   },
   {
-      name: 'Тироль',
-      link: 'images/tirol.jpg'
+    name: 'Гора Эльбрус',
+    link: 'images/elbrus.jpg'
   },
   {
-      name: 'Сапай',
-      link: 'images/supai.jpg'
+    name: 'Карачаевск',
+    link: 'images/karachaevsk.jpg'
   }
 ];
 
@@ -51,10 +49,8 @@ function addCard(nameValue, linkValue) {
   cardElement.querySelector('.element__title').textContent = nameValue;
   cardElement.querySelector('.element__image').alt = nameValue;
 
-  cardsContainer.append(cardElement);
+  cardsContainer.prepend(cardElement);
 };
-
-
 
 
 function openProfile() {
@@ -83,11 +79,12 @@ function save(e) {
 
 editButton.addEventListener('click', openProfile);
 addButton.addEventListener('click', openNewCard);
+
 closeButtonProfile.addEventListener('click', close);
 closeButtonNewCard.addEventListener('click', close);
-saveButton.addEventListener('click', save);
 
-createButton.addEventListener('click', (e) => {
+profile.addEventListener('submit', save);
+newCard.addEventListener('submit', (e) => {
   e.preventDefault();
   let name = newCardName.value;
   let link = newCardLink.value;
