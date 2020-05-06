@@ -1,16 +1,19 @@
-const editButton = document.querySelector('.profile__edit');
-const addButton = document.querySelector('.profile__add');
 const profile = document.querySelector('#popup__profile');
-const newCard = document.querySelector('#popup__new-card');
-const closeButtonProfile = profile.querySelector('.form__close');
-const closeButtonNewCard = newCard.querySelector('.form__close');
 let profileName = document.querySelector('.profile__name');
+const editButton = document.querySelector('.profile__edit');
+const closeButtonProfile = profile.querySelector('.form__close');
 let formName = document.querySelector('.form__input_name');
 let profileDescription = document.querySelector('.profile__description');
 let formDescription = document.querySelector('.form__input_description');
-const cardsContainer = document.querySelector('.elements');
+
+const addButton = document.querySelector('.profile__add');
+
+const newCard = document.querySelector('#popup__new-card');
 let newCardName = newCard.querySelector('.form__input_name');
 let newCardLink = newCard.querySelector('.form__input_link');
+const closeButtonNewCard = newCard.querySelector('.form__close');
+const cardsContainer = document.querySelector('.elements');
+
 const bigCard = document.querySelector('#popup__enlarged');
 const bigImage = bigCard.querySelector('.popup__image');
 const place = bigCard.querySelector('.popup__place');
@@ -43,8 +46,6 @@ const initialCards = [
   }
 ];
 
-initialCards.forEach((element) => {addCard(element.name, element.link)});
-
 function addCard(nameValue, linkValue) {
   const cardTemplate = document.querySelector('#card').content;
   const cardElement = cardTemplate.cloneNode(true);
@@ -67,18 +68,7 @@ function addCard(nameValue, linkValue) {
   cardsContainer.prepend(cardElement);
 };
 
-
-function openProfile() {
-  formName.value = profileName.textContent;
-  formDescription.value = profileDescription.textContent;
-  profile.classList.add('popup_opened');
-}
-
-function openNewCard() {
-  newCardName.value = '';
-  newCardLink.value = '';
-  newCard.classList.add('popup_opened');
-}
+initialCards.forEach((element) => {addCard(element.name, element.link)});
 
 function close() {
   profile.classList.remove('popup_opened');
@@ -86,21 +76,27 @@ function close() {
   bigCard.classList.remove('popup_opened');
 }
 
-function save(e) {
-  e.preventDefault();
-  profileName.textContent = formName.value;
-  profileDescription.textContent = formDescription.value;
-  close();
-}
-
-editButton.addEventListener('click', openProfile);
-addButton.addEventListener('click', openNewCard);
+editButton.addEventListener('click', () => {
+  formName.value = profileName.textContent;
+  formDescription.value = profileDescription.textContent;
+  profile.classList.add('popup_opened');
+});
+addButton.addEventListener('click', () => {
+  newCardName.value = '';
+  newCardLink.value = '';
+  newCard.classList.add('popup_opened');
+});
 
 closeButtonProfile.addEventListener('click', close);
 closeButtonNewCard.addEventListener('click', close);
 closeButtonBigCard.addEventListener('click', close);
 
-profile.addEventListener('submit', save);
+profile.addEventListener('submit', (e) => {
+  e.preventDefault();
+  profileName.textContent = formName.value;
+  profileDescription.textContent = formDescription.value;
+  close();
+});
 newCard.addEventListener('submit', (e) => {
   e.preventDefault();
   let name = newCardName.value;
