@@ -83,6 +83,7 @@ function openNewCard() {
 function close() {
   profile.classList.remove('popup_opened');
   newCard.classList.remove('popup_opened');
+  bigCard.classList.remove('popup_opened');
 }
 
 function save(e) {
@@ -97,6 +98,7 @@ addButton.addEventListener('click', openNewCard);
 
 closeButtonProfile.addEventListener('click', close);
 closeButtonNewCard.addEventListener('click', close);
+closeButtonBigCard.addEventListener('click', close);
 
 profile.addEventListener('submit', save);
 newCard.addEventListener('submit', (e) => {

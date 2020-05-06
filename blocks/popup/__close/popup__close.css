@@ -1,7 +1,7 @@
-.form__close {
+.popup__close {
   position: absolute;
-  right: -8%;
-  top: -11%;
+  right: -40px;
+  top: -40px;
   width: 40px;
   height: 40px;
   background-color: transparent;
@@ -18,15 +18,15 @@
   transition: opacity .15s linear;
 }
 
-.form__close:hover {
+.popup__close:hover {
   opacity: .6;
 }
 
-.form__close:focus {
+.popup__close:focus {
   outline: none;
 }
 
-.form__close:active {
+.popup__close:active {
   opacity: 1;
   transition: 0s;
 }
