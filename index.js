@@ -53,13 +53,13 @@ function addCard(nameValue, linkValue) {
   cardElement.querySelector('.element__image').src = linkValue;
   cardElement.querySelector('.element__title').textContent = nameValue;
   cardElement.querySelector('.element__image').alt = nameValue;
-  cardElement.querySelector('.element__like').addEventListener('click', function(evt) {
+  cardElement.querySelector('.element__like').addEventListener('click', (evt) => {
     evt.target.classList.toggle('element__like_active');
   });
-  cardElement.querySelector('.element__delete').addEventListener('click', function(evt) {
+  cardElement.querySelector('.element__delete').addEventListener('click', (evt) => {
     evt.target.closest('.element').remove();
   });
-  cardElement.querySelector('.element__image').addEventListener('click', function(evt) {
+  cardElement.querySelector('.element__image').addEventListener('click', (evt) => {
     bigCard.classList.add('popup_opened');
     place.textContent = nameValue;
     bigImage.alt = nameValue;
