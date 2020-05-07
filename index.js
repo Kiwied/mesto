@@ -33,16 +33,16 @@ const initialCards = [
     link: 'images/sumba.jpg'
   },
   {
-    name: 'Домбай',
-    link: 'images/dombai.jpg'
+    name: 'Даррингтон',
+    link: 'images/Darrington.jpg'
   },
   {
-    name: 'Гора Эльбрус',
-    link: 'images/elbrus.jpg'
+    name: 'Фудзияма',
+    link: 'images/fuji.jpg'
   },
   {
-    name: 'Карачаевск',
-    link: 'images/karachaevsk.jpg'
+    name: 'Парк Картье',
+    link: 'images/canada.jpg'
   }
 ];
 
@@ -104,8 +104,3 @@ newCard.addEventListener('submit', (e) => {
   addCard(name, link);
   close();
 });
-
-
-
-
-
