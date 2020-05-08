@@ -25,9 +25,20 @@
   transition: 0s;
 }
 
+.profile__edit:before {
+  content: "";
+  display: block;
+  padding-top: 22px;
+}
+
 @media screen and (max-width: 657px) {
   .profile__edit {
     width: 18px;
     height: 18px;
   }
+
+  .profile__edit:before {
+    padding-top: 16px;
+  }
 }
+

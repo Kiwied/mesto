@@ -1,6 +1,4 @@
 .profile__row {
-  display: -webkit-box;
   display: flex;
-  -webkit-box-align: baseline;
-          align-items: baseline;
+  align-items: baseline;
 }

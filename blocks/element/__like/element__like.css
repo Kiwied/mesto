@@ -13,6 +13,12 @@
   transition: opacity .15s linear;
 }
 
+.element__like:before {
+  content: "";
+  display: block;
+  padding-top: 16px;
+}
+
 .element__like:hover {
   opacity: .7;
 }
