@@ -56,18 +56,18 @@ function pressLike(evt) {
   evt.target.classList.toggle('element__like_active');
 }
 
-function pressDelete(evt) {
-  //С ними почему то не работает
-  //evt.target.closest('.element__like').removeEventListener('click', pressLike);
-  //evt.target.closest('.element__image').removeEventListener('click', pressImage);
-  evt.target.closest('.element').remove();
+function pressImage(evt) {
+  place.textContent = evt.target.alt;
+  bigImage.alt = evt.target.alt;
+  bigImage.src = evt.target.src;
+  togglePopup(bigCard);
 }
 
-function pressImage(evt) {
-  togglePopup(bigCard);
-  place.textContent = evt.target.nextElementSibling.firstElementChild.textContent;
-  bigImage.alt = evt.target.nextElementSibling.firstElementChild.textContent;
-  bigImage.src = evt.target.src;
+function pressDelete(evt) {
+  const card = evt.target.closest('.element');
+  card.removeEventListener('click', pressLike);
+  card.removeEventListener('click', pressImage);
+  card.remove();
 }
 
 function createCard(nameValue, linkValue) {
