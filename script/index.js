@@ -65,8 +65,8 @@ function pressImage(evt) {
 
 function pressDelete(evt) {
   const card = evt.target.closest('.element');
-  card.removeEventListener('click', pressLike);
-  card.removeEventListener('click', pressImage);
+  card.querySelector('.element__like').removeEventListener('click', pressLike);
+  card.querySelector('.element__image').removeEventListener('click', pressImage);
   card.remove();
 }
 
