@@ -49,6 +49,17 @@ const initialCards = [
 ];
 
 function togglePopup(popup) {
+  popup.addEventListener("click", (evt) => {
+    if (evt.target.classList.contains("popup_opened")) {
+      popup.classList.remove("popup_opened");
+    }
+  });
+
+  document.addEventListener("keydown", function (evt) {
+    if (evt.key === "Escape") {
+      popup.classList.remove("popup_opened");
+    }}, { once: true });
+
   popup.classList.toggle('popup_opened');
 };
 
@@ -119,3 +130,17 @@ newCard.addEventListener('submit', (e) => {
 });
 
 initialCards.forEach((element) => {addCard(element.name, element.link)});
+
+const profileForm = profile.querySelector('.form');
+
+/* function overlayClose(evt, popup, form) {
+  if (evt.target !== form) {
+    togglePopup(popup);
+  }
+  console.log(evt.target);
+};
+
+profile.addEventListener('click', overlayClose(profile, profileForm)); */
+
+
+
