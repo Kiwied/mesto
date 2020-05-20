@@ -1,7 +1,11 @@
 @import url(__title/form__title.css);
 @import url(__input/form__input.css);
+@import url(__input-error/form__input-error.css);
+@import url(__input-error/_active/form__input-error_active.css);
 @import url(__save/form__save.css);
+@import url(__save/_inactive/form__save_inactive.css);
 @import url(__close/form__close.css);
+@import url(__input/_type/form__input_type_error.css);
 
 .form {
   width: 430px;

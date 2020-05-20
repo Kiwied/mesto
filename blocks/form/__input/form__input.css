@@ -1,3 +1,5 @@
+@import url(_type/form__input_type_error.css);
+
 .form__input {
   width: 83.256%;
   min-height: 27px;
@@ -5,4 +7,8 @@
   border-bottom: 1px solid black;
   font-size: .875rem;
   line-height: 121%;
+}
+
+.form__input:focus {
+  outline: none;
 }

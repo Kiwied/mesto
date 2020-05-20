@@ -61,7 +61,23 @@ function togglePopup(popup) {
     }}, { once: true });
 
   popup.classList.toggle('popup_opened');
-};
+}
+
+function resetValidation (popup) {
+  const formObject = {inactiveButtonClass: 'form__save_inactive'};
+  const errorList = Array.from(popup.querySelectorAll('.form__input-error'));
+  const inputList = Array.from(popup.querySelectorAll('.form__input'));
+  const buttonElement = popup.querySelector('.form__save');
+
+  toggleButtonState(inputList, buttonElement, formObject);
+
+  errorList.forEach((span) => {
+    span.classList.remove('form__input-error_active');
+  });
+  inputList.forEach((input) => {
+    input.classList.remove('form__input_type_error');
+  });
+}
 
 function pressLike(evt) {
   evt.target.classList.toggle('element__like_active');
@@ -103,11 +119,13 @@ function addCard(nameValue, linkValue) {
 editButton.addEventListener('click', () => {
   formName.value = profileName.textContent;
   formDescription.value = profileDescription.textContent;
+  resetValidation(profile);
   togglePopup(profile);
 });
 addButton.addEventListener('click', () => {
   newCardName.value = '';
   newCardLink.value = '';
+  resetValidation(newCard);
   togglePopup(newCard);
 });
 
@@ -131,16 +149,6 @@ newCard.addEventListener('submit', (e) => {
 
 initialCards.forEach((element) => {addCard(element.name, element.link)});
 
-const profileForm = profile.querySelector('.form');
-
-/* function overlayClose(evt, popup, form) {
-  if (evt.target !== form) {
-    togglePopup(popup);
-  }
-  console.log(evt.target);
-};
-
-profile.addEventListener('click', overlayClose(profile, profileForm)); */
 
 
 
