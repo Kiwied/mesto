@@ -1,4 +1,4 @@
-# Проект 6: Mesto
+# Проект 4-6: Mesto
 
 ### Обзор
 
@@ -12,9 +12,14 @@
 Работа ученика [Яндекс.Практикума](https://praktikum.yandex.ru/ "Яндекс.Практикум") Аникеева Антона.
 Представляет собой разрабатываемый сайт - сервис Mesto, интерактивая страница, куда можно добавлять фотографии, удалять их и ставить лайки.
 
-**Figma**
+**Ссылки на макеты в Figma**
 
-[Ссылка на макет в Figma](https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4 "Figma/mesto")
+
+[Макет первой части работы](https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4 "Figma/mesto")
+
+[Макет второй части работы](https://www.figma.com/file/nlYpT4VhFiwimn2YlncrcF/JavaScript.-Sprint-5?node-id=0%3A1 "Figma/mesto")
+
+[Макет третьей части работы](https://www.figma.com/file/XNaGNEZD5NEjeyJzAT4gMb/JavaScript.-Sprint-6?node-id=0%3A1 "Figma/mesto")
 
 #### Используемые технологии
 
