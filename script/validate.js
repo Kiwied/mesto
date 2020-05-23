@@ -1,3 +1,12 @@
+const formObject = {
+  formSelector: '.form',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.form__save',
+  inactiveButtonClass: 'form__save_inactive',
+  inputErrorClass: 'form__input_type_error',
+  errorClass: 'form__input-error_active'
+};
+
 const showInputError = (formElement, inputElement, errorMessage, formObject) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
 
@@ -62,11 +71,4 @@ const enableValidation = (formObject) => {
   });
 };
 
-enableValidation({
-  formSelector: '.form',
-  inputSelector: '.form__input',
-  submitButtonSelector: '.form__save',
-  inactiveButtonClass: 'form__save_inactive',
-  inputErrorClass: 'form__input_type_error',
-  errorClass: 'form__input-error_active'
-});
+enableValidation(formObject);

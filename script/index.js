@@ -77,18 +77,16 @@ function closePopup(popup) {
 }
 
 function resetValidation (popup) {
-  const formObject = {inactiveButtonClass: 'form__save_inactive'};
-  const errorList = Array.from(popup.querySelectorAll('.form__input-error'));
   const inputList = Array.from(popup.querySelectorAll('.form__input'));
   const buttonElement = popup.querySelector('.form__save');
 
   toggleButtonState(inputList, buttonElement, formObject);
 
-  errorList.forEach((span) => {
-    span.classList.remove('form__input-error_active');
+  Array.from(popup.querySelectorAll('.form__input-error')).forEach((error) => {
+    error.classList.remove('form__input-error_active');
   });
   inputList.forEach((input) => {
-    input.classList.remove('form__input_type_error');
+    hideInputError(popup, input, formObject);
   });
 }
 
