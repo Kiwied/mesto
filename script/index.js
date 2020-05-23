@@ -49,18 +49,31 @@ const initialCards = [
 ];
 
 function togglePopup(popup) {
-  popup.addEventListener("click", (evt) => {
-    if (evt.target.classList.contains("popup_opened")) {
-      popup.classList.remove("popup_opened");
-    }
-  });
-
-  document.addEventListener("keydown", function (evt) {
-    if (evt.key === "Escape") {
-      popup.classList.remove("popup_opened");
-    }}, { once: true });
-
   popup.classList.toggle('popup_opened');
+}
+
+function overlayClose(evt) {
+  if (evt.target.classList.contains('popup_opened')) {
+    evt.target.classList.remove('popup_opened');
+  }
+}
+
+function escapeClose(evt) {
+  if (evt.key === 'Escape') {
+    document.querySelector('.popup_opened').classList.remove('popup_opened');
+  }
+}
+
+function openPopup(popup) {
+  popup.addEventListener('click', overlayClose);
+  document.addEventListener('keydown', escapeClose);
+  togglePopup(popup);
+}
+
+function closePopup(popup) {
+  popup.removeEventListener('click', overlayClose);
+  document.removeEventListener('keydown', escapeClose);
+  togglePopup(popup);
 }
 
 function resetValidation (popup) {
@@ -87,7 +100,7 @@ function pressImage(evt) {
   place.textContent = evt.target.alt;
   bigImage.alt = evt.target.alt;
   bigImage.src = evt.target.src;
-  togglePopup(bigCard);
+  openPopup(bigCard);
 }
 
 function pressDelete(evt) {
@@ -120,31 +133,31 @@ editButton.addEventListener('click', () => {
   formName.value = profileName.textContent;
   formDescription.value = profileDescription.textContent;
   resetValidation(profile);
-  togglePopup(profile);
+  openPopup(profile);
 });
 addButton.addEventListener('click', () => {
   newCardName.value = '';
   newCardLink.value = '';
   resetValidation(newCard);
-  togglePopup(newCard);
+  openPopup(newCard);
 });
 
-closeButtonProfile.addEventListener('click', () => togglePopup(profile));
-closeButtonNewCard.addEventListener('click', () => togglePopup(newCard));
-closeButtonBigCard.addEventListener('click', () => togglePopup(bigCard));
+closeButtonProfile.addEventListener('click', () => closePopup(profile));
+closeButtonNewCard.addEventListener('click', () => closePopup(newCard));
+closeButtonBigCard.addEventListener('click', () => closePopup(bigCard));
 
 profile.addEventListener('submit', (e) => {
   e.preventDefault();
   profileName.textContent = formName.value;
   profileDescription.textContent = formDescription.value;
-  togglePopup(profile);
+  closePopup(profile);
 });
 newCard.addEventListener('submit', (e) => {
   e.preventDefault();
   const name = newCardName.value;
   const link = newCardLink.value;
   addCard(name, link);
-  togglePopup(newCard);
+  closePopup(newCard);
 });
 
 initialCards.forEach((element) => {addCard(element.name, element.link)});
