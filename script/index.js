@@ -54,13 +54,13 @@ function togglePopup(popup) {
 
 function overlayClose(evt) {
   if (evt.target.classList.contains('popup_opened')) {
-    evt.target.classList.remove('popup_opened');
+    closePopup(evt.target);
   }
 }
 
 function escapeClose(evt) {
   if (evt.key === 'Escape') {
-    document.querySelector('.popup_opened').classList.remove('popup_opened');
+    closePopup(document.querySelector('.popup_opened'));
   }
 }
 
@@ -76,15 +76,12 @@ function closePopup(popup) {
   togglePopup(popup);
 }
 
-function resetValidation (popup) {
-  const inputList = Array.from(popup.querySelectorAll('.form__input'));
-  const buttonElement = popup.querySelector('.form__save');
+function resetValidation(popup) {
+  const inputList = Array.from(popup.querySelectorAll(formObject.inputSelector));
+  const buttonElement = popup.querySelector(formObject.submitButtonSelector);
 
   toggleButtonState(inputList, buttonElement, formObject);
 
-  Array.from(popup.querySelectorAll('.form__input-error')).forEach((error) => {
-    error.classList.remove('form__input-error_active');
-  });
   inputList.forEach((input) => {
     hideInputError(popup, input, formObject);
   });
