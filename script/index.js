@@ -70,7 +70,6 @@ function overlayClose(evt) {
 }
 
 function escapeClose(evt) {
-  console.log('Escape!');
   if (evt.code === 'Escape') {
     closePopup(document.querySelector('.popup_opened'));
   }
