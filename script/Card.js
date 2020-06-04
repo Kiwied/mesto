@@ -1,4 +1,4 @@
-import {openPopup, closePopup, place, bigImage, bigCard, closeButtonBigCard} from "./index.js";
+import {openPopup, place, bigImage, bigCard} from "./index.js";
 
 class Card {
   constructor(cardInfo, cardSelector) {
@@ -25,8 +25,6 @@ class Card {
   }
 
   _setEventListeners() {
-    closeButtonBigCard.addEventListener('click', () => closePopup(bigCard));
-
     this._cardElement.querySelector('.element__like').addEventListener('click', (evt) => {
       evt.target.classList.toggle('element__like_active');
     });

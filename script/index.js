@@ -70,7 +70,8 @@ function overlayClose(evt) {
 }
 
 function escapeClose(evt) {
-  if (evt.key === 'Escape') {
+  console.log('Escape!');
+  if (evt.code === 'Escape') {
     closePopup(document.querySelector('.popup_opened'));
   }
 }
@@ -125,7 +126,7 @@ addButton.addEventListener('click', () => {
   resetValidation(newCard);
   openPopup(newCard);
 });
-
+closeButtonBigCard.addEventListener('click', () => closePopup(bigCard));
 closeButtonProfile.addEventListener('click', () => closePopup(profile));
 closeButtonNewCard.addEventListener('click', () => closePopup(newCard));
 
@@ -167,7 +168,7 @@ formList.forEach((formElement) => {
   validator.enableValidation();
 });
 
-export {openPopup, closePopup, place, bigImage, bigCard, closeButtonBigCard};
+export {openPopup, place, bigImage, bigCard};
 
 
 
