@@ -154,7 +154,6 @@ newCard.addEventListener('submit', (e) => {
 initialCards.forEach((element) => {
   const card = new Card(element, '#card');
   const cardElement = card.generateCard();
-
   cardsContainer.prepend(cardElement);
 });
 
