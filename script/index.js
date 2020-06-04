@@ -104,7 +104,7 @@ function resetValidation(popup) {
   } else {
     buttonElement.classList.remove(formObject.inactiveButtonClass);
     buttonElement.disabled = false;
-  };
+  }
 
   inputList.forEach((inputElement) => {
     const errorElement = popup.querySelector(`#${inputElement.id}-error`);
@@ -160,15 +160,8 @@ initialCards.forEach((element) => {
 
 const formList = Array.from(document.querySelectorAll(formObject.formSelector));
 formList.forEach((formElement) => {
-  formElement.addEventListener('submit', (evt) => {
-    evt.preventDefault();
-  });
-
   const validator = new FormValidator(formObject, formElement);
   validator.enableValidation();
 });
 
 export {openPopup, place, bigImage, bigCard};
-
-
-

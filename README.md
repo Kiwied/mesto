@@ -1,4 +1,4 @@
-# Проект 4-6: Mesto
+# Проект 4-7: Mesto
 
 ### Обзор
 
@@ -23,15 +23,16 @@
 
 #### Используемые технологии
 
-* HTML, CSS
-* flexbox, grid layout
+* HTML, CSS, JavaScript
+* Интерактивность и валидация при помощи JavaScript
+* Flexbox, Grid Layout
 * Адаптивная верстка
-* Nested БЭМ
+* Nested BEM
 * Система контроля версий Git
 
 **Принципиально новые технологии в сравнении с прошлыми работами:**
 
-* интерактивность при помощи JavaScript
-* валидация при помощи JavaScript
+* ООП рефакторинг
+* использование модулей в JS
 
 **[Ссылка на GitHub Pages](https://kiwied.github.io/mesto/ "Mesto")**
