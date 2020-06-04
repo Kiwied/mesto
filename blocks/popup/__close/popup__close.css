@@ -30,3 +30,7 @@
   opacity: 1;
   transition: 0s;
 }
+
+.popup_opened .popup__enlarged:not(:hover) .popup__close {
+  opacity: .6;
+}

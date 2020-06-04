@@ -30,3 +30,7 @@
   opacity: 1;
   transition: 0s;
 }
+
+.popup_opened .form:not(:hover) .form__close {
+  opacity: .6;
+}
