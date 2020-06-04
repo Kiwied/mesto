@@ -1,4 +1,5 @@
 import {Card} from './Card.js';
+import {FormValidator} from "./FormValidator.js";
 
 const profile = document.querySelector('#popup__profile');
 const profileName = document.querySelector('.profile__name');
@@ -49,6 +50,15 @@ const initialCards = [
   }
 ];
 
+const formObject = {
+  formSelector: '.form',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.form__save',
+  inactiveButtonClass: 'form__save_inactive',
+  inputErrorClass: 'form__input_type_error',
+  errorClass: 'form__input-error_active'
+};
+
 function togglePopup(popup) {
   popup.classList.toggle('popup_opened');
 }
@@ -81,10 +91,25 @@ function resetValidation(popup) {
   const inputList = Array.from(popup.querySelectorAll(formObject.inputSelector));
   const buttonElement = popup.querySelector(formObject.submitButtonSelector);
 
-  toggleButtonState(inputList, buttonElement, formObject);
+  function hasInvalidInput(inputList) {
+    return inputList.some((inputElement) => {
+      return !inputElement.validity.valid;
+    })
+  }
 
-  inputList.forEach((input) => {
-    hideInputError(popup, input, formObject);
+  if (hasInvalidInput(inputList)) {
+    buttonElement.classList.add(formObject.inactiveButtonClass);
+    buttonElement.disabled = true;
+  } else {
+    buttonElement.classList.remove(formObject.inactiveButtonClass);
+    buttonElement.disabled = false;
+  };
+
+  inputList.forEach((inputElement) => {
+    const errorElement = popup.querySelector(`#${inputElement.id}-error`);
+    inputElement.classList.remove(formObject.inputErrorClass);
+    errorElement.textContent = '';
+    errorElement.classList.remove(formObject.errorClass);
   });
 }
 
@@ -130,6 +155,16 @@ initialCards.forEach((element) => {
   const cardElement = card.generateCard();
 
   cardsContainer.prepend(cardElement);
+});
+
+const formList = Array.from(document.querySelectorAll(formObject.formSelector));
+formList.forEach((formElement) => {
+  formElement.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+  });
+
+  const validator = new FormValidator(formObject, formElement);
+  validator.enableValidation();
 });
 
 export {openPopup, closePopup, place, bigImage, bigCard, closeButtonBigCard};
