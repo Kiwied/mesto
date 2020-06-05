@@ -1,6 +1,4 @@
-import {openPopup, place, bigImage, bigCardPopup} from "./index.js";
-
-class Card {
+export default class Card {
   constructor(cardInfo, cardSelector) {
     this._name = cardInfo.name;
     this._link = cardInfo.link;
@@ -24,6 +22,30 @@ class Card {
     return this._cardElement;
   }
 
+  _overlayClose = (evt) => {
+    if (evt.target.classList.contains('popup_opened')) {
+      this._closeBigCardPopup(evt.target);
+    }
+  }
+
+  _escapeClose = (evt) => {
+    if (evt.code === 'Escape') {
+      this._closeBigCardPopup(document.querySelector('.popup_opened'));
+    }
+  }
+
+  _openBigCardPopup = (bigCardPopup) => {
+    bigCardPopup.addEventListener('click', this._overlayClose);
+    document.addEventListener('keydown', this._escapeClose);
+    bigCardPopup.classList.toggle('popup_opened');
+  }
+
+  _closeBigCardPopup = (bigCardPopup) => {
+    bigCardPopup.removeEventListener('click', this._overlayClose);
+    document.removeEventListener('keydown', this._escapeClose);
+    bigCardPopup.classList.toggle('popup_opened');
+  }
+
   _setEventListeners() {
     this._cardElement.querySelector('.element__like').addEventListener('click', (evt) => {
       evt.target.classList.toggle('element__like_active');
@@ -34,12 +56,14 @@ class Card {
     }, {once: true});
 
     this._cardImageElement.addEventListener('click', (evt) => {
+      const bigCardPopup = document.querySelector('#popup__enlarged');
+      const bigImage = bigCardPopup.querySelector('.popup__image');
+      const place = bigCardPopup.querySelector('.popup__place');
+
       place.textContent = evt.target.alt;
       bigImage.alt = evt.target.alt;
       bigImage.src = evt.target.src;
-      openPopup(bigCardPopup);
+      this._openBigCardPopup(bigCardPopup);
     });
   }
 }
-
-export {Card};

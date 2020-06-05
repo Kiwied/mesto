@@ -1,5 +1,5 @@
-import {Card} from './Card.js';
-import {FormValidator} from "./FormValidator.js";
+import Card from './Card.js';
+import FormValidator from "./FormValidator.js";
 
 const profilePopup = document.querySelector('#popup__profile');
 const profileName = document.querySelector('.profile__name');
@@ -18,8 +18,6 @@ const closeButtonNewCard = newCardPopup.querySelector('.form__close');
 const cardsContainer = document.querySelector('.elements');
 
 const bigCardPopup = document.querySelector('#popup__enlarged');
-const bigImage = bigCardPopup.querySelector('.popup__image');
-const place = bigCardPopup.querySelector('.popup__place');
 const closeButtonBigCard = bigCardPopup.querySelector('.popup__close');
 
 
@@ -137,5 +135,3 @@ formList.forEach((formElement) => {
   const validator = new FormValidator(formObject, formElement);
   validator.enableValidation();
 });
-
-export {openPopup, place, bigImage, bigCardPopup};
