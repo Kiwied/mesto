@@ -1,4 +1,4 @@
-import {openPopup, place, bigImage, bigCard} from "./index.js";
+import {openPopup, place, bigImage, bigCardPopup} from "./index.js";
 
 class Card {
   constructor(cardInfo, cardSelector) {
@@ -37,7 +37,7 @@ class Card {
       place.textContent = evt.target.alt;
       bigImage.alt = evt.target.alt;
       bigImage.src = evt.target.src;
-      openPopup(bigCard);
+      openPopup(bigCardPopup);
     });
   }
 }
