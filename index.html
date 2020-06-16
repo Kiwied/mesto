@@ -7,7 +7,7 @@
     <meta name="description" content="Проектная работа №4 Аникеева Антона на Яндекс.Практикуме">
     <meta name="keywords" content="html, css, js">
     <meta name="author" content="Антон Аникеев">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="pages/index.css">
     <title>Mesto</title>
 </head>
 
@@ -45,24 +45,24 @@
     <section class="popup" id="popup__profile">
       <form class="form" novalidate>
         <h3 class="form__title">Редактировать профиль</h3>
-        <input type="text" id="name-input" placeholder="Имя" class="form__input form__input_name" required minlength="2" maxlength="40" pattern="^[A-Za-zА-Яа-яЁё \-]+$">
+        <input type="text" id="name-input" name="name" placeholder="Имя" class="form__input form__input_name" required minlength="2" maxlength="40" pattern="^[A-Za-zА-Яа-яЁё \-]+$">
         <span class="form__input-error" id="name-input-error"></span>
-        <input type="text" id="description-input" placeholder="Описание" class="form__input form__input_description" required minlength="2" maxlength="200" pattern="^[A-Za-zА-Яа-яЁё \-]+$">
+        <input type="text" id="description-input" name="description" placeholder="Описание" class="form__input form__input_description" required minlength="2" maxlength="200" pattern="^[A-Za-zА-Яа-яЁё \-]+$">
         <span class="form__input-error" id="description-input-error"></span>
         <button type="submit" class="form__save">Сохранить</button>
-        <button type="button" class="form__close"></button>
+        <button type="button" class="popup__close"></button>
       </form>
     </section>
 
     <section class="popup" id="popup__new-card">
       <form class="form" novalidate>
         <h3 class="form__title">Новое место</h3>
-        <input type="text" id="place-input" placeholder="Название" class="form__input form__input_name" required minlength="1" maxlength="30" pattern="^[A-Za-zА-Яа-яЁё \-]+$">
+        <input type="text" id="place-input" name="name" placeholder="Название" class="form__input form__input_name" required minlength="1" maxlength="30" pattern="^[A-Za-zА-Яа-яЁё \-]+$">
         <span class="form__input-error" id="place-input-error"></span>
-        <input type="url" id="link-input" placeholder="Ссылка на картинку" class="form__input form__input_link" required>
+        <input type="url" id="link-input" name="link" placeholder="Ссылка на картинку" class="form__input form__input_link" required>
         <span class="form__input-error" id="link-input-error"></span>
         <button type="submit" class="form__save">Создать</button>
-        <button type="button" class="form__close"></button>
+        <button type="button" class="popup__close"></button>
       </form>
     </section>
 
@@ -86,6 +86,6 @@
   </li>
 </template>
 
-<script type="module" src="./script/index.js"></script>
+<script type="module" src="pages/index.js"></script>
 </body>
 </html>

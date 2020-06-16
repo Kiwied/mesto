@@ -1,0 +1,19 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "* Описание\r * Figma\r * Используемые технологии\r * GitHub Pages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kiwied/mesto.git"
+  },
+  "author": "Anton Anikeev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kiwied/mesto/issues"
+  },
+  "homepage": "https://github.com/Kiwied/mesto#readme"
+}
