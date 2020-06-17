@@ -1,3 +1,10 @@
+import supai from '../../images/supai.jpg';
+import tirol from '../../images/tirol.jpg';
+import sumba from '../../images/sumba.jpg';
+import darrington from '../../images/Darrington.jpg';
+import fuji from '../../images/fuji.jpg';
+import canada from '../../images/canada.jpg';
+
 export const profilePopup = document.querySelector('#popup__profile');
 export const editButton = document.querySelector('.profile__edit');
 export const formName = document.querySelector('.form__input_name');
@@ -21,26 +28,26 @@ export const formList = Array.from(document.querySelectorAll(formObject.formSele
 export const initialCards = [
   {
     name: 'Сапай',
-    link: 'images/supai.jpg'
+    link: supai
   },
   {
     name: 'Тироль',
-    link: 'images/tirol.jpg'
+    link: tirol
   },
   {
     name: 'Сумба',
-    link: 'images/sumba.jpg'
+    link: sumba
   },
   {
     name: 'Даррингтон',
-    link: 'images/Darrington.jpg'
+    link: darrington
   },
   {
     name: 'Фудзияма',
-    link: 'images/fuji.jpg'
+    link: fuji
   },
   {
     name: 'Парк Картье',
-    link: 'images/canada.jpg'
+    link: canada
   }
 ];
