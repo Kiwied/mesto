@@ -34,3 +34,7 @@
 .popup_opened .popup__enlarged:not(:hover) .popup__close {
   opacity: .6;
 }
+
+.popup_opened .form:not(:hover) .popup__close {
+  opacity: .6;
+}

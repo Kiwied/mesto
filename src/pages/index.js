@@ -35,9 +35,8 @@ const popupProfile = new PopupWithForm('#popup__profile', (newProfileInfo) => {
 
 const popupBigImage = new PopupWithImage('#popup__enlarged');
 
-const popupNewCard = new PopupWithForm('#popup__new-card', () => {
-  const newCardInfo = popupNewCard._getInputValues();
-  const newCard = new Card(newCardInfo, '#card', (evt) => {
+const popupNewCard = new PopupWithForm('#popup__new-card', (formInputs) => {
+  const newCard = new Card(formInputs, '#card', (evt) => {
     popupBigImage.open(evt)
   });
   cardsSection.addItem(newCard.generateCard());
