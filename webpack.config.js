@@ -26,7 +26,7 @@ module.exports = {
         loader: 'file-loader?name=./vendor/[name].[ext]',
       },
       {
-        test: /\.html$/,run
+        test: /\.html$/,
         loader: 'html-loader',
       },
       {

@@ -51,7 +51,7 @@ editButton.addEventListener('click', () => {
   const validator = new FormValidator(formObject, profilePopup);
   validator.resetValidation();
   popupProfile.open();
-});
+});git
 
 addButton.addEventListener('click', () => {
   newCardName.value = '';
