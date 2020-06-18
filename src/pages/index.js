@@ -43,21 +43,24 @@ const popupNewCard = new PopupWithForm('#popup__new-card', (formInputs) => {
   popupNewCard.close();
 });
 
+const validatorProfile = new FormValidator(formObject, profilePopup);
+
 editButton.addEventListener('click', () => {
   const userData = userInfo.getUserInfo();
   formName.value = userData.name;
   formDescription.value = userData.description;
 
-  const validator = new FormValidator(formObject, profilePopup);
-  validator.resetValidation();
+
+  validatorProfile.resetValidation();
   popupProfile.open();
-});git
+});
+
+const validatorNewCard = new FormValidator(formObject, newCardPopup);
 
 addButton.addEventListener('click', () => {
   newCardName.value = '';
   newCardLink.value = '';
-  const validator = new FormValidator(formObject, newCardPopup);
-  validator.resetValidation();
+  validatorNewCard.resetValidation();
   popupNewCard.open();
 });
 
