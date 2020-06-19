@@ -19,10 +19,10 @@ import {
   initialCards
 } from '../script/utils/constants.js';
 
-formList.forEach((formElement) => {
-  const validator = new FormValidator(formObject, formElement);
-  validator.enableValidation();
-});
+const validatorProfile = new FormValidator(formObject, profilePopup);
+const validatorNewCard = new FormValidator(formObject, newCardPopup);
+validatorProfile.enableValidation();
+validatorNewCard.enableValidation();
 
 const userInfo = new UserInfo({
   nameSelector: '.profile__name',
@@ -43,19 +43,14 @@ const popupNewCard = new PopupWithForm('#popup__new-card', (formInputs) => {
   popupNewCard.close();
 });
 
-const validatorProfile = new FormValidator(formObject, profilePopup);
-
 editButton.addEventListener('click', () => {
   const userData = userInfo.getUserInfo();
   formName.value = userData.name;
   formDescription.value = userData.description;
 
-
   validatorProfile.resetValidation();
   popupProfile.open();
 });
-
-const validatorNewCard = new FormValidator(formObject, newCardPopup);
 
 addButton.addEventListener('click', () => {
   newCardName.value = '';
