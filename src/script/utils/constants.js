@@ -13,6 +13,9 @@ export const addButton = document.querySelector('.profile__add');
 export const newCardPopup = document.querySelector('#popup__new-card');
 export const newCardName = newCardPopup.querySelector('.form__input_name');
 export const newCardLink = newCardPopup.querySelector('.form__input_link');
+export const newAvatarPopup = document.querySelector('#popup__avatar');
+export const newAvatarLink = newAvatarPopup.querySelector('.form__input_link');
+export const avatar = document.querySelector('.profile__avatar-container');
 
 export const formObject = {
   formSelector: '.form',
@@ -24,30 +27,3 @@ export const formObject = {
 };
 
 export const formList = Array.from(document.querySelectorAll(formObject.formSelector));
-
-export const initialCards = [
-  {
-    name: 'Сапай',
-    link: supai
-  },
-  {
-    name: 'Тироль',
-    link: tirol
-  },
-  {
-    name: 'Сумба',
-    link: sumba
-  },
-  {
-    name: 'Даррингтон',
-    link: darrington
-  },
-  {
-    name: 'Фудзияма',
-    link: fuji
-  },
-  {
-    name: 'Парк Картье',
-    link: canada
-  }
-];
