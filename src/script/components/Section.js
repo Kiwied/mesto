@@ -13,7 +13,7 @@ export default class Section {
   }
 
   renderItems(renderedItems) {
-    this.clear();
+    //this.clear();
     renderedItems.forEach((item) => {
       this._renderer(item);
     });

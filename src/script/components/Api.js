@@ -20,7 +20,7 @@ export default class Api {
     })
   }
 
-  setNewUserInfo({name, about}) {
+  setNewUserInfo({ name, about }) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
       headers: {
@@ -28,8 +28,8 @@ export default class Api {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: `${name}`,
-        about: `${about}`
+        name: name,
+        about: about
       })
     });
   }
@@ -45,6 +45,71 @@ export default class Api {
         avatar: avatar
       })
     })
+  }
+
+  addNewCard({ name, link }) {
+    return fetch(`${this._baseUrl}/cards`, {
+      method: 'POST',
+      headers: {
+        authorization: `${this._token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name,
+        link: link
+      })
+    });
+  }
+
+  like(cardId) {
+    return fetch(`${this._baseUrl}/cards/like/${cardId}`, {
+      method: 'PUT',
+      headers: {
+        authorization: `${this._token}`,
+        'Content-Type': 'application/json'
+      }
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          return Promise.reject(`Ошибка: ${res.status}`);
+        }
+      })
+  }
+
+  dislike(cardId) {
+    return fetch(`${this._baseUrl}/cards/like/${cardId}`, {
+      method: 'DELETE',
+      headers: {
+        authorization: `${this._token}`,
+        'Content-Type': 'application/json'
+      }
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          return Promise.reject(`Ошибка: ${res.status}`);
+        }
+      })
+  }
+
+  delete(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
+      method: 'DELETE',
+      headers: {
+        authorization: `${this._token}`,
+        'Content-Type': 'application/json'
+      }
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          return Promise.reject(`Ошибка: ${res.status}`);
+        }
+      })
   }
 }
 
