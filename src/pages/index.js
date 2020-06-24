@@ -17,7 +17,8 @@ import {
   newCardName,
   newCardLink,
   formObject,
-  avatar
+  avatar,
+  profileAvatar
 } from '../script/utils/constants.js';
 import Api from "../script/components/Api.js";
 
@@ -38,11 +39,26 @@ validatorAvatar.enableValidation();
 
 const userInfo = new UserInfo({
   nameSelector: '.profile__name',
-  descriptionSelector: '.profile__description'
+  descriptionSelector: '.profile__description',
+  avatarSelector: '.profile__avatar'
 });
 
 const popupProfile = new PopupWithForm('#popup__profile', (newProfileInfo) => {
-  userInfo.setUserInfo(newProfileInfo);
+  api.setNewUserInfo(newProfileInfo)
+    .then(res => {
+      if (res.ok) {
+        return res.json()
+      } else {
+        return Promise.reject(`Ошибка: ${res.status}`);
+      }
+    })
+    .then(res => {
+      console.log(res);
+      userInfo.setUserInfo(res);
+    })
+    .catch(err => {
+      console.log(`Ошибка: ${err}`)
+    });
 });
 
 const popupBigImage = new PopupWithImage('#popup__enlarged');
@@ -56,7 +72,20 @@ const popupNewCard = new PopupWithForm('#popup__new-card', (formInputs) => {
 });
 
 const popupAvatar = new PopupWithForm('#popup__avatar', (urlInput) => {
-  document.querySelector('.profile__avatar').src = urlInput.link;
+  api.setNewAvatar(urlInput)
+    .then(res => {
+      if (res.ok) {
+        return res.json()
+      } else {
+        return Promise.reject(`Ошибка: ${res.status}`);
+      }
+    })
+    .then(res => {
+      userInfo.setUserInfo(res);
+    })
+    .catch(err => {
+      console.log(`Ошибка: ${err}`)
+    });
 })
 
 avatar.addEventListener('click', () => {
@@ -99,9 +128,25 @@ api.getInitialCards()
       return Promise.reject(`Ошибка: ${res.status}`);
     }
   })
-  .then((result) => {
-    cardsSection.renderItems(result);
+  .then(res => {
+    cardsSection.renderItems(res);
   })
-  .catch((err) => {
+  .catch(err => {
+    console.log(`Ошибка: ${err}`)
+  });
+
+api.getUserInfo()
+  .then(res => {
+    if (res.ok) {
+      return res.json()
+    } else {
+      return Promise.reject(`Ошибка: ${res.status}`);
+    }
+  })
+  .then(res => {
+    userInfo.setUserInfo(res);
+    userInfo.setAvatar(res);
+  })
+  .catch(err => {
     console.log(`Ошибка: ${err}`)
   });

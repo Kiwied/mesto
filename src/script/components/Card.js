@@ -19,7 +19,6 @@ export default class Card {
     this._cardImageElement.alt = this._name;
 
     this._setEventListeners();
-    console.log(this._name);
     return this._cardElement;
   }
 
