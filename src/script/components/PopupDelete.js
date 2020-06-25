@@ -10,6 +10,7 @@ export default class PopupDelete extends Popup {
     this.open();
     this._popup.addEventListener('submit', (evt) => {
       evt.preventDefault();
+      document.getElementById(`${_id}`).remove();
       this._submit(_id);
       this.close();
     })

@@ -17,12 +17,10 @@ import {
   newCardName,
   newCardLink,
   formObject,
-  avatar,
-  profileAvatar
+  avatar
 } from '../script/utils/constants.js';
 import Api from "../script/components/Api.js";
 import PopupDelete from "../script/components/PopupDelete.js";
-import Popup from "../script/components/Popup.js";
 
 const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-12',
@@ -85,9 +83,6 @@ const popupDelete = new PopupDelete('#popup__delete', (_id) => {
           return Promise.reject(`Ошибка: ${res.status}`);
         }
       })
-      .then(res => {
-        console.log(res);
-      })
       .catch(err => {
         console.log(`Ошибка: ${err}`)
       })
@@ -106,7 +101,6 @@ const popupNewCard = new PopupWithForm('#popup__new-card', (formInputs) => {
       }
     })
     .then(res => {
-      console.log(res);
       cardsSection.renderItems([res]);
     })
     .catch(err => {
@@ -167,11 +161,11 @@ const cardsSection = new Section(
       { name, link, likes, owner, _id },
       '#card',
       (evt) => popupBigImage.open(evt),
-      () => api.like(_id),
+      (_id) => api.like(_id),
       (_id) => api.dislike(_id),
       () => {
-        popupDelete.submitDelete(_id)
-        //this._popup.querySelector('.element').remove();
+        renderLoading(false, '#popup__delete');
+        popupDelete.submitDelete(_id);
       }
     )
       cardsSection.addItem(card.generateCard());
@@ -187,7 +181,6 @@ api.getInitialCards()
     }
   })
   .then(res => {
-    console.log(res);
     cardsSection.renderItems(res);
   })
   .catch(err => {
@@ -204,7 +197,6 @@ api.getUserInfo()
   })
   .then(res => {
     userInfo.setUserInfo(res);
-    userInfo.setAvatar(res);
   })
   .catch(err => {
     console.log(`Ошибка: ${err}`)

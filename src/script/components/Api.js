@@ -62,7 +62,7 @@ export default class Api {
   }
 
   like(cardId) {
-    return fetch(`${this._baseUrl}/cards/like/${cardId}`, {
+    return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: 'PUT',
       headers: {
         authorization: `${this._token}`,
@@ -73,13 +73,14 @@ export default class Api {
         if (res.ok) {
           return res.json();
         } else {
+          console.log(cardId);
           return Promise.reject(`Ошибка: ${res.status}`);
         }
       })
   }
 
   dislike(cardId) {
-    return fetch(`${this._baseUrl}/cards/like/${cardId}`, {
+    return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
       method: 'DELETE',
       headers: {
         authorization: `${this._token}`,
