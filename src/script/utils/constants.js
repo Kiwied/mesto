@@ -9,7 +9,6 @@ export const newCardLink = newCardPopup.querySelector('.form__input_link');
 export const newAvatarPopup = document.querySelector('#popup__avatar');
 export const newAvatarLink = newAvatarPopup.querySelector('.form__input_link');
 export const avatar = document.querySelector('.profile__avatar-container');
-export const profileAvatar = document.querySelector('.profile__avatar');
 
 export const formObject = {
   formSelector: '.form',
@@ -19,3 +18,13 @@ export const formObject = {
   inputErrorClass: 'form__input_type_error',
   errorClass: 'form__input-error_active'
 };
+
+export const apiInfo = {
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-12',
+  headers: {
+    authorization: '46554895-2128-4943-bcbf-ffff5703844f',
+    'Content-Type': 'application/json'
+  }
+}
+
+

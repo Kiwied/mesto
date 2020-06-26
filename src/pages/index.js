@@ -17,18 +17,13 @@ import {
   newCardName,
   newCardLink,
   formObject,
-  avatar
+  avatar,
+  apiInfo
 } from '../script/utils/constants.js';
 import Api from "../script/components/Api.js";
 import PopupDelete from "../script/components/PopupDelete.js";
 
-const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-12',
-  headers: {
-    authorization: '46554895-2128-4943-bcbf-ffff5703844f',
-    'Content-Type': 'application/json'
-  }
-});
+const api = new Api(apiInfo);
 
 function renderLoading(isLoading, selector) {
   const submitButton = document.querySelector(selector).querySelector('.form__save')
@@ -55,13 +50,6 @@ const userInfo = new UserInfo({
 const popupProfile = new PopupWithForm('#popup__profile', (newProfileInfo) => {
   api.setNewUserInfo(newProfileInfo)
     .then(res => {
-      if (res.ok) {
-        return res.json()
-      } else {
-        return Promise.reject(`Ошибка: ${res.status}`);
-      }
-    })
-    .then(res => {
       userInfo.setUserInfo(res);
     })
     .catch(err => {
@@ -76,13 +64,6 @@ const popupBigImage = new PopupWithImage('#popup__enlarged');
 
 const popupDelete = new PopupDelete('#popup__delete', (_id) => {
     api.delete(_id)
-      .then(res => {
-        if (res.ok) {
-          return res.json()
-        } else {
-          return Promise.reject(`Ошибка: ${res.status}`);
-        }
-      })
       .catch(err => {
         console.log(`Ошибка: ${err}`)
       })
@@ -93,13 +74,6 @@ const popupDelete = new PopupDelete('#popup__delete', (_id) => {
 
 const popupNewCard = new PopupWithForm('#popup__new-card', (formInputs) => {
   api.addNewCard(formInputs)
-    .then(res => {
-      if (res.ok) {
-        return res.json()
-      } else {
-        return Promise.reject(`Ошибка: ${res.status}`);
-      }
-    })
     .then(res => {
       cardsSection.renderItems([res]);
     })
@@ -113,13 +87,6 @@ const popupNewCard = new PopupWithForm('#popup__new-card', (formInputs) => {
 
 const popupAvatar = new PopupWithForm('#popup__avatar', (urlInput) => {
   api.setNewAvatar(urlInput)
-    .then(res => {
-      if (res.ok) {
-        return res.json()
-      } else {
-        return Promise.reject(`Ошибка: ${res.status}`);
-      }
-    })
     .then(res => {
       userInfo.setUserInfo(res);
     })
@@ -174,13 +141,6 @@ const cardsSection = new Section(
 
 api.getInitialCards()
   .then(res => {
-    if (res.ok) {
-      return res.json()
-    } else {
-      return Promise.reject(`Ошибка: ${res.status}`);
-    }
-  })
-  .then(res => {
     cardsSection.renderItems(res);
   })
   .catch(err => {
@@ -188,13 +148,6 @@ api.getInitialCards()
   });
 
 api.getUserInfo()
-  .then(res => {
-    if (res.ok) {
-      return res.json()
-    } else {
-      return Promise.reject(`Ошибка: ${res.status}`);
-    }
-  })
   .then(res => {
     userInfo.setUserInfo(res);
   })

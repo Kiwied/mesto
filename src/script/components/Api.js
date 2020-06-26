@@ -10,6 +10,13 @@ export default class Api {
         authorization: `${this._token}`
       }
     })
+      .then(res => {
+        if (res.ok) {
+          return res.json()
+        } else {
+          return Promise.reject(`Ошибка: ${res.status}`);
+        }
+      })
   }
 
   getUserInfo() {
@@ -18,6 +25,13 @@ export default class Api {
         authorization: `${this._token}`
       }
     })
+      .then(res => {
+        if (res.ok) {
+          return res.json()
+        } else {
+          return Promise.reject(`Ошибка: ${res.status}`);
+        }
+      })
   }
 
   setNewUserInfo({ name, about }) {
@@ -31,7 +45,14 @@ export default class Api {
         name: name,
         about: about
       })
-    });
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json()
+        } else {
+          return Promise.reject(`Ошибка: ${res.status}`);
+        }
+      });
   }
 
   setNewAvatar({ avatar }) {
@@ -45,6 +66,13 @@ export default class Api {
         avatar: avatar
       })
     })
+      .then(res => {
+        if (res.ok) {
+          return res.json()
+        } else {
+          return Promise.reject(`Ошибка: ${res.status}`);
+        }
+      })
   }
 
   addNewCard({ name, link }) {
@@ -58,7 +86,14 @@ export default class Api {
         name: name,
         link: link
       })
-    });
+    })
+      .then(res => {
+        if (res.ok) {
+          return res.json()
+        } else {
+          return Promise.reject(`Ошибка: ${res.status}`);
+        }
+      });
   }
 
   like(cardId) {
