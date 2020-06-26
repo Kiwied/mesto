@@ -26,9 +26,11 @@ import PopupDelete from "../script/components/PopupDelete.js";
 const api = new Api(apiInfo);
 
 function renderLoading(isLoading, selector) {
-  const submitButton = document.querySelector(selector).querySelector('.form__save')
-  if (isLoading) {
-    submitButton.textContent = 'Сохранение...'
+  const submitButton = document.querySelector(selector).querySelector('.form__save');
+  if (isLoading === 'loading') {
+    submitButton.textContent = 'Загрузка...';
+  } else if (isLoading === 'error') {
+    submitButton.textContent = 'Ошибка';
   } else {
     submitButton.textContent = submitButton.name;
   }
@@ -48,53 +50,49 @@ const userInfo = new UserInfo({
 });
 
 const popupProfile = new PopupWithForm('#popup__profile', (newProfileInfo) => {
+  renderLoading('loading', '#popup__profile');
   api.setNewUserInfo(newProfileInfo)
     .then(res => {
       userInfo.setUserInfo(res);
     })
     .catch(err => {
-      console.log(`Ошибка: ${err}`)
-    })
-    .finally(() => {
-      renderLoading(true, '#popup__profile')
+      renderLoading('error', '#popup__profile');
+      console.log(err);
     })
 });
 
 const popupBigImage = new PopupWithImage('#popup__enlarged');
 
 const popupDelete = new PopupDelete('#popup__delete', (_id) => {
-    api.delete(_id)
-      .catch(err => {
-        console.log(`Ошибка: ${err}`)
-      })
-      .finally(() => {
-        renderLoading(true, '#popup__delete')
-      })
-  });
+  renderLoading('loading', '#popup__delete');
+  api.delete(_id)
+    .catch(err => {
+      renderLoading('error', '#popup__delete');
+      console.log(err);
+    })
+});
 
 const popupNewCard = new PopupWithForm('#popup__new-card', (formInputs) => {
+  renderLoading('loading', '#popup__new-card');
   api.addNewCard(formInputs)
     .then(res => {
       cardsSection.renderItems([res]);
     })
     .catch(err => {
-      console.log(`Ошибка: ${err}`)
-    })
-    .finally(() => {
-      renderLoading(true, '#popup__new-card')
+      renderLoading('error', '#popup__new-card');
+      console.log(err);
     })
 });
 
 const popupAvatar = new PopupWithForm('#popup__avatar', (urlInput) => {
+  renderLoading('loading', '#popup__avatar');
   api.setNewAvatar(urlInput)
     .then(res => {
       userInfo.setUserInfo(res);
     })
     .catch(err => {
-      console.log(`Ошибка: ${err}`)
-    })
-    .finally(() => {
-      renderLoading(true, '#popup__avatar')
+      renderLoading('error', '#popup__avatar');
+      console.log(err);
     })
 })
 
