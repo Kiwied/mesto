@@ -152,4 +152,3 @@ api.getUserInfo()
   .catch(err => {
     console.log(`Ошибка: ${err}`)
   });
-
