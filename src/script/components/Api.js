@@ -4,7 +4,7 @@ export default class Api {
     this._headers = headers;
   }
 
-  _getResponseData(res) {
+  _checkResponseData(res) {
     if (res.ok) {
       return res.json()
     } else {
@@ -16,14 +16,14 @@ export default class Api {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers
     })
-      .then(res => this._getResponseData(res))
+      .then(res => this._checkResponseData(res))
   }
 
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers
     })
-      .then(res => this._getResponseData(res))
+      .then(res => this._checkResponseData(res))
   }
 
   setNewUserInfo({ name, about }) {
@@ -35,7 +35,7 @@ export default class Api {
         about: about
       })
     })
-      .then(res => this._getResponseData(res))
+      .then(res => this._checkResponseData(res))
   }
 
   setNewAvatar({ avatar }) {
@@ -46,7 +46,7 @@ export default class Api {
         avatar: avatar
       })
     })
-      .then(res => this._getResponseData(res))
+      .then(res => this._checkResponseData(res))
   }
 
   addNewCard({ name, link }) {
@@ -58,7 +58,7 @@ export default class Api {
         link: link
       })
     })
-      .then(res => this._getResponseData(res))
+      .then(res => this._checkResponseData(res))
   }
 
   like(cardId) {
@@ -66,7 +66,7 @@ export default class Api {
       method: 'PUT',
       headers: this._headers
     })
-      .then(res => this._getResponseData(res))
+      .then(res => this._checkResponseData(res))
   }
 
   dislike(cardId) {
@@ -74,7 +74,7 @@ export default class Api {
       method: 'DELETE',
       headers: this._headers
     })
-      .then(res => this._getResponseData(res))
+      .then(res => this._checkResponseData(res))
   }
 
   delete(cardId) {
@@ -82,7 +82,7 @@ export default class Api {
       method: 'DELETE',
       headers: this._headers
     })
-      .then(res => this._getResponseData(res))
+      .then(res => this._checkResponseData(res))
   }
 }
 

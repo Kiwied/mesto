@@ -22,19 +22,11 @@ import {
 } from '../script/utils/constants.js';
 import Api from "../script/components/Api.js";
 import PopupDelete from "../script/components/PopupDelete.js";
+import { renderLoading } from "../script/utils/functions.js";
 
 const api = new Api(apiInfo);
 
-function renderLoading(isLoading, selector) {
-  const submitButton = document.querySelector(selector).querySelector('.form__save');
-  if (isLoading === 'loading') {
-    submitButton.textContent = 'Загрузка...';
-  } else if (isLoading === 'error') {
-    submitButton.textContent = 'Ошибка';
-  } else {
-    submitButton.textContent = submitButton.name;
-  }
-}
+
 
 const validatorProfile = new FormValidator(formObject, profilePopup);
 const validatorNewCard = new FormValidator(formObject, newCardPopup);
@@ -63,14 +55,7 @@ const popupProfile = new PopupWithForm('#popup__profile', (newProfileInfo) => {
 
 const popupBigImage = new PopupWithImage('#popup__enlarged');
 
-const popupDelete = new PopupDelete('#popup__delete', (_id) => {
-  renderLoading('loading', '#popup__delete');
-  api.delete(_id)
-    .catch(err => {
-      renderLoading('error', '#popup__delete');
-      console.log(err);
-    })
-});
+const popupDelete = new PopupDelete('#popup__delete', _id => api.delete(_id));
 
 const popupNewCard = new PopupWithForm('#popup__new-card', (formInputs) => {
   renderLoading('loading', '#popup__new-card');
@@ -128,9 +113,9 @@ const cardsSection = new Section(
       (evt) => popupBigImage.open(evt),
       (_id) => api.like(_id),
       (_id) => api.dislike(_id),
-      () => {
+      (_id) => {
         renderLoading(false, '#popup__delete');
-        popupDelete.submitDelete(_id);
+        popupDelete.open(_id);
       }
     )
       cardsSection.addItem(card.generateCard());

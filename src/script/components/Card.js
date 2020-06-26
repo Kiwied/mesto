@@ -61,8 +61,8 @@ export default class Card {
   }
 
   _delete = () => {
+    this._handleDelete(this._id);
     this._removeEventListeners();
-    this._handleDelete();
   }
 
   _setEventListeners = () => {
