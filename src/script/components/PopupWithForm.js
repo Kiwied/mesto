@@ -5,6 +5,7 @@ export default class PopupWithForm extends Popup {
   constructor(popupSelector, formSubmit) {
     super(popupSelector);
     this._formSubmit = formSubmit;
+    this._popupSelector = popupSelector;
   }
 
   _getInputValues() {
@@ -17,17 +18,12 @@ export default class PopupWithForm extends Popup {
   }
 
   _handleFormSubmit = (evt) => {
-    /*
-     evt.preventDefault();
-     this._formSubmit(this._getInputValues());
-     this.close();
-     */
     evt.preventDefault();
-    renderLoading('loading', '#popup__new-card');
+    renderLoading('loading', this._popupSelector);
     this._formSubmit(this._getInputValues())
       .then(() => this.close())
       .catch(err => {
-        renderLoading('error', '#popup__new-card');
+        renderLoading('error', this._popupSelector);
         console.log(err);
       })
   }

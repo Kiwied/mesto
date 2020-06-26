@@ -41,17 +41,12 @@ const userInfo = new UserInfo({
   avatarSelector: '.profile__avatar'
 });
 
-const popupProfile = new PopupWithForm('#popup__profile', (newProfileInfo) => {
-  renderLoading('loading', '#popup__profile');
+const popupProfile = new PopupWithForm('#popup__profile', (newProfileInfo) =>
   api.setNewUserInfo(newProfileInfo)
     .then(res => {
       userInfo.setUserInfo(res);
     })
-    .catch(err => {
-      renderLoading('error', '#popup__profile');
-      console.log(err);
-    })
-});
+);
 
 const popupBigImage = new PopupWithImage('#popup__enlarged');
 
