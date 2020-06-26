@@ -57,17 +57,12 @@ const popupBigImage = new PopupWithImage('#popup__enlarged');
 
 const popupDelete = new PopupDelete('#popup__delete', _id => api.delete(_id));
 
-const popupNewCard = new PopupWithForm('#popup__new-card', (formInputs) => {
-  renderLoading('loading', '#popup__new-card');
+const popupNewCard = new PopupWithForm('#popup__new-card', (formInputs) =>
   api.addNewCard(formInputs)
     .then(res => {
       cardsSection.renderItems([res]);
     })
-    .catch(err => {
-      renderLoading('error', '#popup__new-card');
-      console.log(err);
-    })
-});
+);
 
 const popupAvatar = new PopupWithForm('#popup__avatar', (urlInput) => {
   renderLoading('loading', '#popup__avatar');

@@ -1,4 +1,5 @@
 import Popup from './Popup.js';
+import { renderLoading } from "../utils/functions.js";
 
 export default class PopupWithForm extends Popup {
   constructor(popupSelector, formSubmit) {
@@ -16,9 +17,19 @@ export default class PopupWithForm extends Popup {
   }
 
   _handleFormSubmit = (evt) => {
-      evt.preventDefault();
-      this._formSubmit(this._getInputValues());
-      this.close();
+    /*
+     evt.preventDefault();
+     this._formSubmit(this._getInputValues());
+     this.close();
+     */
+    evt.preventDefault();
+    renderLoading('loading', '#popup__new-card');
+    this._formSubmit(this._getInputValues())
+      .then(() => this.close())
+      .catch(err => {
+        renderLoading('error', '#popup__new-card');
+        console.log(err);
+      })
   }
 
   _setEventListeners() {
