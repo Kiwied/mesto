@@ -42,15 +42,21 @@ export default class Card {
 
   _like = (evt) => {
     if (!evt.target.classList.contains('element__like_active')) {
-      evt.target.classList.add('element__like_active');
-      this._likes.length += 1;
-      evt.target.closest('.element').querySelector('.element__like-counter').textContent = this._likes.length;
-      this._handleLike(this._id);
+      this._handleLike(this._id)
+        .then(res => {
+          evt.target.classList.add('element__like_active');
+          this._likes = res.likes;
+          evt.target.closest('.element').querySelector('.element__like-counter').textContent = this._likes.length;
+        })
+        .catch(err => console.log(err))
     } else {
-      evt.target.classList.remove('element__like_active');
-      this._likes.length -= 1;
-      evt.target.closest('.element').querySelector('.element__like-counter').textContent = this._likes.length;
-      this._handleDislike(this._id);
+      this._handleDislike(this._id)
+        .then(res => {
+          evt.target.classList.remove('element__like_active');
+          this._likes = res.likes;
+          evt.target.closest('.element').querySelector('.element__like-counter').textContent = this._likes.length;
+        })
+        .catch(err => console.log(err))
     }
   }
 
