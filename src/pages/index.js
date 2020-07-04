@@ -59,17 +59,12 @@ const popupNewCard = new PopupWithForm('#popup__new-card', (formInputs) =>
     })
 );
 
-const popupAvatar = new PopupWithForm('#popup__avatar', (urlInput) => {
-  renderLoading('loading', '#popup__avatar');
+const popupAvatar = new PopupWithForm('#popup__avatar', (urlInput) =>
   api.setNewAvatar(urlInput)
     .then(res => {
       userInfo.setUserInfo(res);
     })
-    .catch(err => {
-      renderLoading('error', '#popup__avatar');
-      console.log(err);
-    })
-})
+)
 
 avatar.addEventListener('click', () => {
   newAvatarLink.value = '';
