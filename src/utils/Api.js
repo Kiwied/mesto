@@ -1,4 +1,6 @@
-export default class Api {
+import { apiInfo } from "./utils.js";
+
+class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
     this._headers = headers;
@@ -85,5 +87,7 @@ export default class Api {
       .then(res => this._checkResponseData(res))
   }
 }
+
+export const api = new Api(apiInfo);
 
 
