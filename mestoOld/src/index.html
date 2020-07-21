@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru" class="html">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Проектная работа №9 Аникеева Антона на Яндекс.Практикуме">
+    <meta name="keywords" content="html, css, js">
+    <meta name="author" content="Антон Аникеев">
+    <title>Mesto</title>
+</head>
+
+<body class="page">
+  <div class="content">
+    <header class="header">
+      <img src="images/logo.svg" alt="Логотип сервиса Mesto" class="header__logo">
+    </header>
+
+    <main>
+      <section class="profile">
+        <div class="profile__main">
+          <div class="profile__avatar-container">
+            <img alt="Аватар профиля" class="profile__avatar">
+            <div class="profile__avatar_overlay"></div>
+          </div>
+          <div class="profile__info">
+            <div class="profile__row">
+              <h2 class="profile__name"></h2>
+              <button type="button" class="profile__edit"></button>
+            </div>
+            <p class="profile__description"></p>
+          </div>
+        </div>
+        <button type="button" class="profile__add"></button>
+      </section>
+
+      <section>
+        <ul class="elements">
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+    </footer>
+
+    <section class="popup" id="popup__profile">
+      <form class="form" novalidate>
+        <h3 class="form__title">Редактировать профиль</h3>
+        <input type="text" id="name-input" name="name" placeholder="Имя" class="form__input form__input_name" required minlength="2" maxlength="40" pattern="^[A-Za-zА-Яа-яЁё \-]+$">
+        <span class="form__input-error" id="name-input-error"></span>
+        <input type="text" id="description-input" name="about" placeholder="Описание" class="form__input form__input_description" required minlength="2" maxlength="200" pattern="^[A-Za-zА-Яа-яЁё, \-]+$">
+        <span class="form__input-error" id="description-input-error"></span>
+        <button type="submit" name="Сохранить" class="form__save">Сохранить</button>
+        <button type="button" class="popup__close"></button>
+      </form>
+    </section>
+
+    <section class="popup" id="popup__new-card">
+      <form class="form" novalidate>
+        <h3 class="form__title">Новое место</h3>
+        <input type="text" id="place-input" name="name" placeholder="Название" class="form__input form__input_name" required minlength="2" maxlength="30" pattern="^[A-Za-zА-Яа-яЁё \-]+$">
+        <span class="form__input-error" id="place-input-error"></span>
+        <input type="url" id="link-input" name="link" placeholder="Ссылка на картинку" class="form__input form__input_link" required>
+        <span class="form__input-error" id="link-input-error"></span>
+        <button type="submit" name="Создать" class="form__save">Создать</button>
+        <button type="button" class="popup__close"></button>
+      </form>
+    </section>
+
+    <section class="popup" id="popup__enlarged">
+      <div class="popup__enlarged">
+        <img class="popup__image">
+        <p class="popup__place"></p>
+        <button type="button" class="popup__close"></button>
+      </div>
+    </section>
+
+    <section class="popup" id="popup__delete">
+      <form class="form form_delete">
+        <h3 class="form__title">Вы уверены?</h3>
+        <button type="submit" name="Да" class="form__save">Да</button>
+        <button type="button" class="popup__close"></button>
+      </form>
+    </section>
+
+    <section class="popup" id="popup__avatar">
+      <form class="form form_avatar">
+        <h3 class="form__title">Обновить аватар</h3>
+        <input type="url" id="avatar-link-input" name="avatar" placeholder="Ссылка на картинку" class="form__input form__input_link" required>
+        <span class="form__input-error" id="avatar-link-input-error"></span>
+        <button type="submit" name="Сохранить" class="form__save">Сохранить</button>
+        <button type="button" class="popup__close"></button>
+      </form>
+    </section>
+  </div>
+
+<template id="card">
+  <li class="element">
+    <img class="element__image">
+    <div class="element__сaption">
+      <h3 class="element__title"></h3>
+      <div class="element__likes">
+        <button type="button" class="element__like"></button>
+        <p class="element__like-counter">0</p>
+      </div>
+    </div>
+    <button type="button" class="element__delete"></button>
+  </li>
+</template>
+
+</body>
+</html>

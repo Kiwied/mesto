@@ -21,7 +21,6 @@
 .editorconfig
 .nojekyll
 .vscode/
-/mestoOld
 
 npm-debug.log*
 yarn-debug.log*
